@@ -3,6 +3,15 @@
 @import "lib/elements/";
 @import "lib/typography/";
 
+// detect safari - https://codepen.io/karlsson/pen/zYNYwNO
+@media not all and (min-resolution: 0.001dpcm) {
+  main[style="height:100%"] {
+    position: relative;
+    > svg {
+      position: absolute;
+    }
+  }
+}
 html {
   --hue: 165;
   --col-r: var(--hue) 50%;
