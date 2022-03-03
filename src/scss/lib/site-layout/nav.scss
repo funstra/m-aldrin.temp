@@ -1,0 +1,6 @@
+[aria-current="page"] {
+  text-decoration-color: hsl(var(--col-r) var(--col-weight-300));
+  .logo & {
+    color: hsl(var(--white));
+  }
+}

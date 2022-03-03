@@ -5,8 +5,18 @@ module.exports = config => {
   config.addWatchTarget("src/scss/**/*.scss");
   config.addWatchTarget("src/js/**/*.js");
 
-  config.addWatchTarget('src/assets')
-  config.addPassthroughCopy('src/assets')
+  config.addWatchTarget("src/assets");
+  config.addPassthroughCopy("src/assets");
+
+  config.addFilter(
+    "slajs",
+    /**
+     * @param {Array} arr
+     * @param {number} s
+     * @param {number} e
+     */
+    (arr, s, e) => arr.slice(s ?? 0, e ?? arr.length)
+  );
 
   config.addTransform("htmlmin", async function (content, outputPath) {
     // Eleventy 1.0+: use this.inputPath and this.outputPath instead

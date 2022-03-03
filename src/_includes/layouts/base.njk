@@ -31,7 +31,10 @@
     <div class="padding-wrapper">
       <header id="site-header">
         <div class="logo">
-          <a href="/">FUNSTRA</a>
+          <a href="/" 
+          {% if page.url == '/' %}
+            aria-current="page"
+          {% endif %}>FUNSTRA</a>
         </div>
         <div id="site-nav">
           <button
@@ -74,18 +77,13 @@
               <h3>Site Navigation</h3>
             </header>
             <ul>
-              <li>
-                <a href="/">home</a>
-              </li>
-              <li>
-                <a href="/writings/">writings</a>
-              </li>
-              <li>
-                <a href="/works/">works</a>
-              </li>
-              <li>
-                <a href="/about/">about</a>
-              </li>
+              {% for navpage in nav | slajs(1) %}
+                <a href="{{navpage.url}}" 
+                {% if page.url == navpage.url %}
+                aria-current="page"
+                {% endif %}
+                >{{navpage.titel}}</a>
+              {% endfor %}
             </ul>
           </nav>
         </div>

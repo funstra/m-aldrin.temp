@@ -1,0 +1,18 @@
+[
+    {
+        "url": "/",
+        "titel": "founstra"
+    },
+    {
+        "url": "/writings/",
+        "titel": "writings"
+    },
+    {
+        "url": "/works/",
+        "titel": "works"
+    },
+    {
+        "url": "/about/",
+        "titel": "about"
+    }
+]
