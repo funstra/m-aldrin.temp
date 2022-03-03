@@ -9,7 +9,15 @@ onepage: true
   viewBox="0 0 1000 866"
   preservAspectRatio="xMidYMid"
 >
-  <defs></defs>
+  <defs>
+    <radialGradient id="shade" gradientTransform="translate(-0.2 -0.3)">
+      <stop
+        offset="10%"
+        stop-color="hsl(var(--col-r) var(--col-weight-500) / 0.5)"
+      />
+      <stop offset="100%" stop-color="hsl(var(--col-r) var(--col-weight-300)" />
+    </radialGradient>
+  </defs>
   <style>
     polygon {
       vector-effect: non-scaling-stroke;
@@ -25,15 +33,21 @@ onepage: true
         brightness(1) blur(0.125em);
     }
     circle {
-      transition-property: transform, filter;
-      transition-duration: 125ms, 200ms;
-      transition-delay: 0ms, 200ms;
-      transition-timing-function: ease-out;
+      animation-name: pulse;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate-reverse;
+      fill: url(#shade);
     }
-    circle:hover {
-      transform: scale(3);
-      filter: drop-shadow(0 0 2em hsl(var(--col-r) var(--col-weight-300)))
-        brightness(1.25) blur(0);
+    @keyframes pulse {
+      from {
+        filter: blur(0.5em);
+        transform: scale(1);
+      }
+      to {
+        filter: blur(0.25em);
+        transform: scale(1.1);
+      }
     }
     @keyframes wave {
       from {
@@ -58,13 +72,13 @@ onepage: true
       points="0,866 1000,866 500,0"
       transform-origin="center 577.3"
       transform="scale({{ factor }})"
-      stroke-width="{{ factor }}"
+      stroke-width="{{ factor * 10 + 0.25 }}"
       stroke="hsl( var(--col-r) var(--col-weight-300) / {{ factor }} )"
       style="animation-duration: {{ 5000 + i * 3000 }}ms;animation-delay: {{
         i * 30
       }}ms;"
     ></polygon>
-    {% endfor %} {% set r = 50 %}
+    {% endfor %} {% set r = 100 %}
     <a href="/about/">
       <circle
         class="shadow"
