@@ -95,8 +95,8 @@ body {
   height: 100%;
   border-radius: 0.125em;
   background-color: var(--col-r-500);
-  box-shadow: 0 0 0.25em inset hsl(var(--col-r) var(--col-weight-100) / 0.125),
-    0 0 1em inset hsl(var(--col-r) var(--col-weight-700) / 1);
+  box-shadow: 0 0 0.25em inset hsl(var(--col-r) var(--col-weight-100) / 0.2),
+    0 0 1.25em inset hsl(var(--col-r) var(--col-weight-700) / 1);
 }
 
 body {
