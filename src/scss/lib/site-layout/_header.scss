@@ -38,6 +38,9 @@ header {
     body & > nav {
       ul {
         margin-top: 0;
+        & li:first-child {
+          display: none;
+        }
       }
     }
     body & > nav {

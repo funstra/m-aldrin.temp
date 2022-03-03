@@ -4,8 +4,9 @@
 @import "lib/typography/";
 
 html {
-  --col-r: 345 83%;
-  --col-r-1: 345 50%;
+  --hue: 195;
+  --col-r: var(--hue) 50%;
+  --col-r-1: var(--hue) 30%;
   --col-weight-100: 30%;
   --col-weight-300: 50%;
   --col-weight-500: 85%;

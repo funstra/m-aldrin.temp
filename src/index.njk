@@ -1,13 +1,36 @@
 ---
 layout: layouts/base
+onepage: true
 ---
-<div>
-    <h2>main content</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore dignissimos atque nisi, sed mollitia doloribus excepturi officia sunt sapiente fugit nesciunt porro, dolore dolorum aliquam tempore deleniti velit maiores? Accusamus eius, molestiae dolorem accusantium laudantium nihil neque suscipit, voluptatum excepturi, eligendi dignissimos. Quam veritatis ipsum soluta facere consectetur. Ipsa, deleniti.</p>
-    <p>Facilis amet velit vero excepturi suscipit mollitia odio sequi nemo ducimus ab nulla fugiat ratione magni reprehenderit maiores ipsam omnis quisquam, dignissimos hic pariatur. Eum accusamus dolorem eaque omnis delectus tempore quis placeat, quasi nam sapiente consectetur porro saepe maiores molestiae repellendus sequi sunt voluptatum totam. Assumenda impedit totam ab.</p>
-    <ul>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, nam.</li>
-        <li>Similique minus qui distinctio accusamus, natus dolores quaerat facere repudiandae.</li>
-        <li>Culpa cumque consequatur beatae mollitia ad explicabo natus excepturi ab.</li>
-    </ul>
-</div>
+<svg width="100%" height="100%" viewBox="0 0 1024 1024" preservAspectRatio="xMidYMid">
+    <style>
+        circle {
+            transition-property: fill,transform;
+            transition-duration: 300ms,200ms;
+            transition-timing-function: eas-out,cubic-bezier(0.95,0.125,0.125,1.25);
+        }
+        circle:hover {
+            fill: red;
+            transform: scale(1.25);
+        }
+    </style>
+    <defs></defs>
+    {% set colArray = ['var(--col-r-500)', 'hsl(var(--col-r) var(--col-weight-300))'] %}
+    {% set n = 16%}
+    {% for i in range(0, n) %}
+        {% set color = colArray[loop.index0 % 2]%}
+        {% set r = ((loop.index0 / n) + 0.5) * 128 %}
+        {% set pos = {
+            x: 512,
+            y: 64 + i * 768 / n
+        } %}
+        <circle cx="{{pos.x}}" cy="{{pos.y}}" r="{{r}}" fill="{{color}}" transform-origin="{{pos.x}} {{pos.y}}"/>
+    {% endfor %}
+    <path stroke="red" fill="hsl(var(--col-r-1) var(--col-weight-500) / 0.75)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" d="
+    M32,576
+    l288,64
+    a1,1 0 0 1 384,0
+    L992,575
+    A1,1 0 0 0 32,575
+    ">
+</svg>

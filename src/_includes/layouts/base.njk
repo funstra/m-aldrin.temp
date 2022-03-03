@@ -11,7 +11,9 @@
   <body>
     <div class="padding-wrapper">
       <header id="site-header">
-        <div class="logo">FUNSTRA</div>
+        <div class="logo">
+          <a href="/">FUNSTRA</a>
+        </div>
         <div id="site-nav">
           <button
             onclick="
@@ -34,20 +36,23 @@
             </header>
             <ul>
               <li>
+                <a href="/">home</a>
+              </li>
+              <li>
                 <a href="">writings</a>
               </li>
               <li>
                 <a href="">works</a>
               </li>
               <li>
-                <a href="">about</a>
+                <a href="/about">about</a>
               </li>
             </ul>
           </nav>
         </div>
       </header>
       <div id="scroll-area">
-        <main>{{ content | safe }}</main>
+        <main style="{% if onepage %}height:100%{% endif %}">{{ content | safe }}</main>
         <footer>
           <p>footer stuff and such</p>
           <b>marcus aldrin</b>
