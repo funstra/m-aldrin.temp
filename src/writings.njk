@@ -1,0 +1,80 @@
+---
+layout: layouts/base
+onepage: true
+---
+
+<svg
+  width="100%"
+  height="100%"
+  viewBox="0 0 1000 866"
+  preservAspectRatio="xMidYMid"
+>
+  <defs></defs>
+  <style>
+    polygon {
+      vector-effect: non-scaling-stroke;
+    }
+    .triangel-part {
+      animation-name: wave;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+    .shadow {
+      filter: drop-shadow(0 0 0.5em hsl(var(--col-r) var(--col-weight-300)))
+        brightness(1) blur(0.125em);
+    }
+    circle {
+      transition-property: transform, filter;
+      transition-duration: 125ms, 200ms;
+      transition-delay: 0ms, 200ms;
+      transition-timing-function: ease-out;
+    }
+    circle:hover {
+      transform: scale(3);
+      filter: drop-shadow(0 0 2em hsl(var(--col-r) var(--col-weight-300)))
+        brightness(1.25) blur(0);
+    }
+    @keyframes wave {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  {% set h = 577.3%} {% set n = 8%}
+  <g
+    transform="scale(0.65) translate(0 -192.33333333333334)"
+    stroke="black"
+    stroke-width="4"
+    fill="transparent"
+    transform-origin="center 577.3"
+  >
+    {% for i in range(0, n) %} {% set factor = (1 - i / n)%}
+    <polygon
+      class="triangel-part"
+      points="0,866 1000,866 500,0"
+      transform-origin="center 577.3"
+      transform="scale({{ factor }})"
+      stroke-width="{{ factor }}"
+      stroke="hsl( var(--col-r) var(--col-weight-300) / {{ factor }} )"
+      style="animation-duration: {{ 5000 + i * 3000 }}ms;animation-delay: {{
+        i * 30
+      }}ms;"
+    ></polygon>
+    {% endfor %} {% set r = 50 %}
+    <a href="/about/">
+      <circle
+        class="shadow"
+        stroke="none"
+        fill="hsl( var(--col-r) var(--col-weight-300) / 0.25  )"
+        cx="500"
+        cy="{{ h }}"
+        r="{{ r }}"
+        transform-origin="500 {{ h }}"
+      />
+    </a>
+  </g>
+</svg>

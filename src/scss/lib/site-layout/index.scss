@@ -4,11 +4,16 @@
 
 html {
   height: 100%;
+  padding: 0.75em;
+  background-color: hsl(var(--white));
 }
 
 body {
   height: 100%;
-  border: 0.75em hsl(var(--white)) solid;
+  border-radius: 0.125em;
+  background-color: var(--col-r-500);
+  box-shadow: 0 0 0.25em inset hsl(var(--col-r) var(--col-weight-100) / 0.125),
+    0 0 1em inset hsl(var(--col-r) var(--col-weight-700) / 1);
 }
 
 body {
@@ -21,7 +26,7 @@ body {
   }
   .padding-wrapper {
     padding: var(--padding);
-    background-color: var(--col-r-500);
+    // background-color: var(--col-r-500);
   }
 }
 #scroll-area {
