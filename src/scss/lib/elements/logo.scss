@@ -1,0 +1,23 @@
+@use "sass:list";
+$fractions: "";
+$l: 16;
+@for $i from 1 through $l {
+  $separator: ",";
+  @if $i == $l {
+    $separator: "";
+  }
+  $step: 0.0625 * $i;
+  $opacity: calc(($l - $i) / $l);
+  $fractions: $fractions +
+    "#{$step*0.75}ch #{$step*1}ch 0 #{list.nth([hsl(var(--col-r-1) var(--col-weight-300) / #{$opacity}),hsl(0 0% 100% / #{$opacity})], $i % 2 + 1)}"+$separator;
+}
+.logo {
+  margin-inline-start: -0.25ch;
+  font-size: 3em;
+  font-weight: 1000;
+  letter-spacing: -0.1ch;
+  color: var(--col-r-500);
+  filter: hue-rotate(0deg) brightness(1) saturate(1);
+  text-shadow: #{$fractions};
+  transform: translateY(-0.3ch);
+}

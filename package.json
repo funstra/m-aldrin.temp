@@ -1,0 +1,21 @@
+{
+  "name": "helloyes-second-act",
+  "scripts": {
+    "dev:eleventy": "npx @11ty/eleventy --serve",
+    "build:eleventy": "npx @11ty/eleventy",
+    "dev:parcel:css": "parcel watch src/scss/*.scss --dist-dir _site/css",
+    "dev:parcel:js": "parcel watch src/js/*.js --dist-dir _site/js",
+    "dev:parcel": "npm run dev:parcel:css & npm run dev:parcel:js",
+    "build:parcel:js": "parcel build src/js/*.js --dist-dir _site/js",
+    "build:parcel:css": "parcel build src/scss/*.scss --dist-dir _site/css",
+    "build:parcel": "npm run build:parcel:css & npm run build:parcel:js",
+    "dev": "npm run dev:parcel & npm run dev:eleventy",
+    "build": "npm run build:parcel & npm run build:eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "@parcel/transformer-sass": "^2.3.2",
+    "html-minifier-terser": "^7.0.0-alpha.1",
+    "parcel": "^2.3.2"
+  }
+}

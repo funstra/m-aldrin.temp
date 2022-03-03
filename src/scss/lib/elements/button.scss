@@ -1,0 +1,29 @@
+button {
+  // white-space: nowrap;
+  cursor: pointer;
+  border-radius: 0;
+  border-style: solid;
+  background-color: transparent;
+  color: currentColor;
+  border-color: currentColor;
+  padding-inline: 0.75em;
+  padding-block: 0.25em;
+
+  border-radius: 10em;
+
+  font-size: 1em;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+
+  &:hover {
+    color: hsl(var(--col-r-1) var(--col-weight-300));
+  }
+  span {
+    font-weight: 600;
+    &:first-child{
+      margin-block-end: 0.3ex;
+    }
+  }
+}

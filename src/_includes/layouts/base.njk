@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <script src="/js/main.js" defer></script>
+  </head>
+  <body>
+    <div class="padding-wrapper">
+      <header id="site-header">
+        <div class="logo">FUNSTRA</div>
+        <div id="site-nav">
+          <button
+            onclick="
+                    document.documentElement.dataset.navState = 'open'
+                    "
+          >
+            <span>menu</span>
+            <span class="vertical-dots">...</span>
+          </button>
+          <nav>
+            <header>
+              <button
+                onclick="
+                      document.documentElement.dataset.navState = ''
+                      "
+              >
+                <span>close</span>
+              </button>
+              <h3>Site Navigation</h3>
+            </header>
+            <ul>
+              <li>
+                <a href="">writings</a>
+              </li>
+              <li>
+                <a href="">works</a>
+              </li>
+              <li>
+                <a href="">about</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <div id="scroll-area">
+        <main>{{ content | safe }}</main>
+        <footer>
+          <p>footer stuff and such</p>
+          <b>marcus aldrin</b>
+        </footer>
+      </div>
+    </div>
+    <div id="click-outside"></div>
+  </body>
+</html>

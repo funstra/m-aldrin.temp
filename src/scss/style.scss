@@ -1,0 +1,27 @@
+@import "lib/reset";
+@import "lib/site-layout/";
+@import "lib/elements/";
+@import "lib/typography/";
+
+html {
+  --col-r: 345 83%;
+  --col-r-1: 345 50%;
+  --col-weight-100: 30%;
+  --col-weight-300: 50%;
+  --col-weight-500: 85%;
+  --col-weight-700: 97.5%;
+
+  --col-r-500: hsl(var(--col-r) var(--col-weight-500));
+  --black: var(--col-r-1) var(--col-weight-100);
+  --white: var(--col-r-1) var(--col-weight-700);
+
+  --transition-base: 125ms;
+}
+
+html {
+  --padding: clamp(1em, 5vmax, 4em);
+}
+
+body {
+  color: hsl(var(--black) / 1);
+}
