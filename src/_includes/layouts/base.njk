@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
     <title>{{ titel }}</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    {# preloads #}
+    {% for preload in collections.nav %}
+      <link rel="preload" as="fetch" type="text/html" href="{{preload.url}}">
+    {% endfor %}
+    <link rel="stylesheet" href="/css/style.css"/>
     <script src="/js/main.js" defer></script>
     <script>
       const hue = localStorage.getItem("hue");
       if (hue) {
-        document.documentElement.style.setProperty("--hue", hue);
+        document
+          .documentElement
+          .style
+          .setProperty("--hue", hue);
         window.addEventListener("DOMContentLoaded", e => {
           const colSel = document
             .querySelector("#color-select input")
@@ -32,7 +40,6 @@
                     "
           >
             <span>menu</span>
-            <!-- <span class="vertical-dots">...</span> -->
             <svg
               width="100%"
               height="2ex"
@@ -40,9 +47,9 @@
               preserveAspectRatio="xMidYMid"
             >
               <g fill="currentColor">
-                <circle cx="6" cy="4" r="2" />
-                <circle cx="6" cy="10" r="2" />
-                <circle cx="6" cy="16" r="2" />
+                <circle cx="6" cy="4" r="2"/>
+                <circle cx="6" cy="10" r="2"/>
+                <circle cx="6" cy="16" r="2"/>
               </g>
             </svg>
           </button>
@@ -54,7 +61,7 @@
                 max="360"
                 value="180"
                 oninput="setColor(event)"
-              />
+/>
             </div>
             <header>
               <button
@@ -74,7 +81,7 @@
                 <a href="/writings/">writings</a>
               </li>
               <li>
-                <a href="">works</a>
+                <a href="/works/">works</a>
               </li>
               <li>
                 <a href="/about/">about</a>

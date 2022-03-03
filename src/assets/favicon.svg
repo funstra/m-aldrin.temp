@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 16 16">
+    <style>
+        circle {
+            stroke-width: 0.5;
+            animation-name: p;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes p {
+            from {
+                fill: white;
+                stroke: black;
+            }
+
+            to {
+                fill: black;
+                stroke: white;
+            }
+        }
+    </style>
+    <circle cx="50%" cy="50%" r="5" />
+    <circle cx="50%" cy="50%" r="2" style="animation-direction:reverse" />
+</svg>
