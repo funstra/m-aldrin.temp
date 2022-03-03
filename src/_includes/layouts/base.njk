@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="/css/style.css" />
     <script src="/js/main.js" defer></script>
+    <script>
+      const hue = localStorage.getItem("hue");
+      if (hue) {
+        document.documentElement.style.setProperty("--hue", hue);
+        window.addEventListener("DOMContentLoaded", e => {
+          const colSel = document
+            .querySelector("#color-select input")
+            .setAttribute("value", hue);
+        });
+      }
+    </script>
   </head>
   <body>
     <div class="padding-wrapper">
@@ -24,6 +35,15 @@
             <span class="vertical-dots">...</span>
           </button>
           <nav>
+            <div id="color-select">
+              <input
+                type="range"
+                min="0"
+                max="360"
+                value="165"
+                oninput="setColor(event)"
+              />
+            </div>
             <header>
               <button
                 onclick="
@@ -52,7 +72,9 @@
         </div>
       </header>
       <div id="scroll-area">
-        <main style="{% if onepage %}height:100%{% endif %}">{{ content | safe }}</main>
+        <main style="{% if onepage %}height:100%{% endif %}">
+          {{ content | safe }}
+        </main>
         <footer>
           <p>footer stuff and such</p>
           <b>marcus aldrin</b>
@@ -60,5 +82,7 @@
       </div>
     </div>
     <div id="click-outside"></div>
+
+    {% include "partials/bg-noise.njk" %}
   </body>
 </html>

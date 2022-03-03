@@ -4,11 +4,12 @@
 @import "lib/typography/";
 
 html {
-  --hue: 195;
+  --hue: 165;
   --col-r: var(--hue) 50%;
   --col-r-1: var(--hue) 30%;
   --col-weight-100: 30%;
   --col-weight-300: 50%;
+  --col-weight-400: 70%;
   --col-weight-500: 85%;
   --col-weight-700: 97.5%;
 

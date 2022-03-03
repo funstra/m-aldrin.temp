@@ -10,7 +10,6 @@
   header,
   & {
     flex-shrink: 0;
-    // height: 4.25em;
   }
 }
 header {
@@ -32,6 +31,11 @@ header {
 }
 #site-nav {
   @media screen and (min-width: 720px) {
+    #color-select {
+      position: fixed;
+      left: calc(var(--padding) * 0.5);
+      bottom: calc(var(--padding) * 0.5);
+    }
     > button {
       display: none;
     }
