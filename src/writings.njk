@@ -10,12 +10,12 @@ onepage: true
   preservAspectRatio="xMidYMid"
 >
   <defs>
-    <radialGradient id="shade" gradientTransform="translate(-0.2 -0.3)">
+    <radialGradient id="shade" gradientTransform="translate(-0.3 -0.3) scale(1.2)">
       <stop
         offset="10%"
-        stop-color="hsl(var(--col-r) var(--col-weight-500) / 0.5)"
+        stop-color="hsl(var(--col-r) var(--col-weight-500) / 0.35)"
       />
-      <stop offset="100%" stop-color="hsl(var(--col-r) var(--col-weight-300)" />
+      <stop offset="100%" stop-color="hsl(var(--col-r) var(--col-weight-300) / 0.9)" />
     </radialGradient>
   </defs>
   <style>
@@ -41,11 +41,11 @@ onepage: true
     }
     @keyframes pulse {
       from {
-        filter: blur(0.5em);
+        filter: blur(0.35em);
         transform: scale(1);
       }
       to {
-        filter: blur(0.25em);
+        filter: blur(0.15em);
         transform: scale(1.1);
       }
     }
@@ -82,7 +82,8 @@ onepage: true
     <a href="/about/">
       <circle
         class="shadow"
-        stroke="none"
+        stroke="hsl(var(--white) / 0.25)"
+        stroke-width="12"
         fill="hsl( var(--col-r) var(--col-weight-300) / 0.25  )"
         cx="500"
         cy="{{ h }}"
