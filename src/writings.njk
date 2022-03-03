@@ -10,12 +10,18 @@ onepage: true
   preservAspectRatio="xMidYMid"
 >
   <defs>
-    <radialGradient id="shade" gradientTransform="translate(-0.3 -0.3) scale(1.2)">
+    <radialGradient
+      id="shade"
+      gradientTransform="translate(-0.3 -0.3) scale(1.2)"
+    >
       <stop
         offset="10%"
         stop-color="hsl(var(--col-r) var(--col-weight-500) / 0.35)"
       />
-      <stop offset="100%" stop-color="hsl(var(--col-r) var(--col-weight-300) / 0.9)" />
+      <stop
+        offset="100%"
+        stop-color="hsl(var(--col-r) var(--col-weight-300) / 0.9)"
+      />
     </radialGradient>
   </defs>
   <style>
@@ -24,9 +30,9 @@ onepage: true
     }
     .triangel-part {
       animation-name: wave;
-      animation-duration: 10s;
       animation-iteration-count: infinite;
-      animation-timing-function: linear;
+      animation-timing-function: ease-in-out;
+      <!-- animation-direction: alternate; -->
     }
     .shadow {
       filter: drop-shadow(0 0 0.5em hsl(var(--col-r) var(--col-weight-300)))
@@ -34,36 +40,47 @@ onepage: true
     }
     circle {
       animation-name: pulse;
-      animation-duration: 3s;
+      animation-duration: 15s;
       animation-iteration-count: infinite;
-      animation-direction: alternate-reverse;
-      fill: url(#shade);
+      animation-direction: alternate;
+      fill: url("#shade");
     }
     @keyframes pulse {
       from {
         filter: blur(0.35em);
         transform: scale(1);
+        stroke: hsl(var(--white) / 0.25);
       }
       to {
-        filter: blur(0.15em);
-        transform: scale(1.1);
+        filter: blur(0.1em);
+        transform: scale(2);
+        stroke: hsl(var(--white) / 0.5);
       }
     }
     @keyframes wave {
-      from {
-        transform: rotate(0deg);
+      0% {
+        transform: rotate(0deg) scale(1);
       }
-      to {
-        transform: rotate(360deg);
+      25% {
+        transform: rotate(30deg) scale(1.125);
+      }
+      30% {
+        transform: rotate(20deg) scale(1.125);
+      }
+      75% {
+        transform: rotate(60deg) scale(1.125);
+      }
+      100% {
+        transform: rotate(0deg) scale(1);
       }
     }
   </style>
-  {% set h = 577.3%} {% set n = 8%}
+  {% set h = 577.3%} {% set n = 4%}
   <g
     transform="scale(0.65) translate(250 50)"
-    stroke="black"
-    stroke-width="4"
     fill="transparent"
+    stroke-linecap="round"
+    stroke-linejoin="round"
   >
     {% for i in range(0, n) %} {% set factor = (1 - i / n)%}
     <polygon
@@ -71,9 +88,9 @@ onepage: true
       points="0,866 1000,866 500,0"
       transform-origin="center 577.3"
       transform="scale({{ factor }})"
-      stroke-width="{{ factor * 10 + 0.25 }}"
+      stroke-width="{{ factor * 16 + 0.25 }}"
       stroke="hsl( var(--col-r) var(--col-weight-300) / {{ factor }} )"
-      style="animation-duration: {{ 5000 + i * 3000 }}ms;animation-delay: {{
+      style="animation-duration: {{ 10000 + i * 4000 }}ms;animation-delay: {{
         i * 30
       }}ms;"
     ></polygon>
