@@ -10,7 +10,7 @@
     "build:parcel:css": "parcel build src/scss/*.scss --dist-dir _site/css",
     "build:parcel": "npm run build:parcel:css & npm run build:parcel:js",
     "dev": "npm run dev:parcel & npm run dev:eleventy",
-    "build": "npm run build:parcel & npm run build:eleventy"
+    "build": "npm run build:parcel && npm run build:eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
