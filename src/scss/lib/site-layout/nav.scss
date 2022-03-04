@@ -28,8 +28,8 @@ a {
       to right,
       hsl(var(--col-r) var(--col-weight-300)) 0%,
       hsl(var(--col-r) var(--col-weight-300)) 50%,
-      hsl(var(--col-r) var(--col-weight-100)) 50%,
-      hsl(var(--col-r) var(--col-weight-100)) 100%
+      hsl(var(--col-r-1) var(--col-weight-100)) 50%,
+      hsl(var(--col-r-1) var(--col-weight-100)) 100%
     );
   }
   &::after {
