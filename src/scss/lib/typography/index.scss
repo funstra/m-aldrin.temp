@@ -2,12 +2,12 @@ body {
   // font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(0.85em, 3vmin, 1.25em);
 }
-a {
-  text-decoration-thickness: 0.3em;
-  &:hover {
-    text-decoration-color: hsl(var(--col-r) var(--col-weight-300));
-  }
-}
+// a {
+//   text-decoration-thickness: 0.3em;
+//   &:hover {
+//     text-decoration-color: hsl(var(--col-r) var(--col-weight-300));
+//   }
+// }
 
 :is(h1, h2, h3, h4, h5) {
   &:first-of-type {

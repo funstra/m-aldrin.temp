@@ -1,0 +1,66 @@
+[data-page] {
+  will-change: opacity;
+}
+.slideOut,
+.slideIn {
+  animation-duration: var(--page-transition-duration);
+}
+.slideOut {
+  animation-name: slideOutY;
+}
+.slideIn {
+  animation-name: slideInY;
+}
+// .f-col {
+//   & [data-page] {
+//     &.slideOut {
+//       animation-name: slideOutY;
+//     }
+//     &.slideIn {
+//       animation-name: slideInY;
+//     }
+//   }
+// }
+
+@keyframes slideOutX {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInX {
+  from {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+}
+@keyframes slideOutY {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInY {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+}

@@ -2,6 +2,7 @@
 @import "main";
 @import "footer";
 @import "nav.scss";
+@import "data-page.scss";
 
 #color-select {
   position: absolute;
@@ -117,8 +118,8 @@ body {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  padding-top: calc(var(--padding) * 2);
-  overflow-y: scroll;
+  // padding-top: calc(var(--padding) * 2);
+  overflow-y: hidden;
   border-radius: 0.25em;
 }
 

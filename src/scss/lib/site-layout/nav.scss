@@ -1,6 +1,45 @@
 [aria-current="page"] {
-  text-decoration-color: hsl(var(--col-r) var(--col-weight-300));
+  // background-position-x: 0%;
+  // text-decoration-color: hsl(var(--col-r) var(--col-weight-300));
   .logo & {
     color: hsl(var(--white));
+  }
+}
+a {
+  text-decoration: none;
+  position: relative;
+  :not(.logo) > &::after {
+    transition-property: background-position-x;
+    transition-duration: 125ms;
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: -1ex;
+    width: 100%;
+    height: 1ex;
+    background-position-x: 100%;
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(
+      to right,
+      hsl(var(--col-r) var(--col-weight-300)) 0%,
+      hsl(var(--col-r) var(--col-weight-300)) 50%,
+      transparent 50%,
+      transparent 100%
+    );
+  }
+  &::after {
+  }
+  &:not([aria-current="page"]) {
+    &:hover {
+      &::after {
+        background-color: hsl(var(--col-r) var(--col-weight-300) / 0.35);
+        height: 20%;
+        bottom: -0.5ex;
+      }
+    }
+  }
+  &[aria-current="page"]::after {
+    background-position-x: 0% !important;
   }
 }
