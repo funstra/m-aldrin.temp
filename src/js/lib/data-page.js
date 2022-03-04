@@ -131,6 +131,12 @@ document.addEventListener("click", async e => {
         .forEach(a => a.removeAttribute("aria-current"));
 
       e.target.setAttribute("aria-current", "page");
+      console.log(e.target);
+      if (e.target.pathname == "/") {
+        document
+          .querySelectorAll("a[href='/']")
+          .forEach(a => a.setAttribute("aria-current", "page"));
+      }
       await setPage(target);
       loading = false;
       document.documentElement.classList.remove("loading");
