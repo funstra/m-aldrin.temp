@@ -10,29 +10,77 @@ tags: nav
             transition-property: fill,transform;
             transition-duration: 300ms,200ms;
             transition-timing-function: eas-out,cubic-bezier(0.95,0.125,0.125,1.25);
+
+
+            --ani-dist: 128;
+            --ani-scale: calc(var(--ani-dist) / 1024);
+            --t-y: calc(1px * var(--ani-dist));
+
+            animation-name: walk;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-out;
+
         }
         circle:hover {
             fill: red;
             transform: scale(1.25);
         }
+        .balls {
+        }
+        @keyframes walk {
+            0% {
+                transform: translateY(0) scale(var(--s));
+            }
+            50% {
+                transform: translateY(calc(var(--t-y) / 2)) scale(calc(var(--s) + calc(var(--ani-scale) / 2)));
+            }
+
+            100% {
+                transform: translateY(var(--t-y)) scale(calc(var(--s) + var(--ani-scale)));
+            }
+        }
     </style>
-    <defs></defs>
+    <defs>
+        <linearGradient id="gradient-mist" gradientTransform="rotate(90)">
+            <stop offset="10%"  stop-color="hsl(var(--col-r) var(--col-weight-500))"></stop>
+            <stop offset="30%"  stop-color="hsl(var(--col-r) var(--col-weight-500) / 0.25)"></stop>
+            <stop offset="50%"  stop-color="hsl(var(--col-r) var(--col-weight-500) / 0)"></stop>
+            <stop offset="70%" stop-color="hsl(var(--col-r) var(--col-weight-500) / 0.25)"></stop>
+            <stop offset="90%" stop-color="hsl(var(--col-r) var(--col-weight-500))"></stop>
+        </linearGradient>
+        <linearGradient id="gradient-mist-mask" gradientTransform="rotate(90)" >
+            <stop offset="10%" stop-color="#000"></stop>
+            <stop offset="50%" stop-color="#fff"></stop>
+            <stop offset="90%" stop-color="#000"></stop>
+        </linearGradient>
+        <mask id="mask-mist">
+            <rect  x="0" y="-32" width="1024" height="1088" fill="url(#gradient-mist-mask)"/>
+        </mask>
+    </defs>
     {% set colArray = ['var(--col-r-500)', 'hsl(var(--col-r) var(--col-weight-300))'] %}
-    {% set n = 16%}
-    {% for i in range(0, n) %}
-        {% set color = colArray[loop.index0 % 2]%}
-        {% set r = ((loop.index0 / n) + 0.5) * 128 %}
-        {% set pos = {
-            x: 512,
-            y: 64 + i * 768 / n
-        } %}
-        <circle cx="{{pos.x}}" cy="{{pos.y}}" r="{{r}}" fill="{{color}}" transform-origin="{{pos.x}} {{pos.y}}"/>
-    {% endfor %}
+    {% set n = 32%}
+    <g mask="url(#mask-mist)">
+        <g class="balls" >
+            {% set rWeight = 0.95%}
+            {% set maxR = 64 %}
+            {% set minR = (1-rWeight) * maxR%}
+            {% for i in range(0, n) %}
+                {% set factor = (i / (n-1))%}
+                {% set color = colArray[loop.index0 % 2]%}
+                16
+                {% set pos = {
+                    x: 512,
+                    y: i * ((1024+minR) / ((n))) - minR
+                } %}
+                <circle style="--s:{{factor}}"  cx="{{pos.x}}" cy="{{pos.y}}" r="{{96}}" fill="{{color}}" transform="translateY(0) scale({{factor}})" transform-origin="{{pos.x}} {{pos.y}}"/>
+            {% endfor %}
+        </g>
+    </g>
     <path stroke="red" fill="hsl(var(--col-r-1) var(--col-weight-500) / 0.75)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" d="
     M32,576
     l288,64
     a1,1 0 0 1 384,0
     L992,575
     A1,1 0 0 0 32,575
-    ">
-</svg>
+    "></svg>
