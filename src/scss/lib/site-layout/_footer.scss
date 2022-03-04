@@ -1,7 +1,10 @@
 footer {
-  transition-property: opacity;
-  transition-duration: 1000ms;
+  transition-property: opacity, transform;
+  transition-duration: 1000ms, 500ms;
+  transition-delay: 0ms, 200ms;
+  transition-timing-function: ease-in, ease-out;
   .time-out & {
+    transform: rotate(-3deg) translate(-1%, 10%);
     opacity: 0;
   }
   display: flex;
