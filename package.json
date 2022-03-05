@@ -15,7 +15,9 @@
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
     "@parcel/transformer-sass": "^2.3.2",
+    "autoprefixer": "^10.4.2",
     "html-minifier-terser": "^7.0.0-alpha.1",
-    "parcel": "^2.3.2"
+    "parcel": "^2.3.2",
+    "postcss": "^8.4.7"
   }
 }
