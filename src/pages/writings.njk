@@ -38,7 +38,7 @@ tags: nav
     .shadow {
       filter: drop-shadow(0 0 0.5em hsl(var(--col-r) var(--col-weight-300))) brightness(1) blur(0.125em);
     }
-    circle {
+    .pulse {
       animation-name: pulse;
       animation-duration: 15s;
       animation-iteration-count: infinite;
@@ -91,7 +91,7 @@ tags: nav
     {% set r = 100 %}
     <a href="/about/">
       <circle
-        class="shadow"
+        class="shadow pulse"
         stroke="hsl(var(--white) / 0.25)"
         stroke-width="12"
         fill="hsl( var(--col-r) var(--col-weight-300) / 0.25  )"

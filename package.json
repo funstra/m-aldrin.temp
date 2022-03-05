@@ -3,8 +3,8 @@
   "scripts": {
     "dev:eleventy": "npx @11ty/eleventy --serve",
     "build:eleventy": "npx @11ty/eleventy",
-    "dev:parcel:css": "parcel watch src/scss/*.scss --dist-dir _site/css",
-    "dev:parcel:js": "parcel watch src/js/*.js --dist-dir _site/js",
+    "dev:parcel:css": "parcel watch --port 9999 src/scss/*.scss --dist-dir _site/css",
+    "dev:parcel:js": "parcel watch --port 9998 src/js/*.js --dist-dir _site/js",
     "dev:parcel": "npm run dev:parcel:css & npm run dev:parcel:js",
     "build:parcel:js": "parcel build src/js/*.js --dist-dir _site/js",
     "build:parcel:css": "parcel build src/scss/*.scss --dist-dir _site/css",
