@@ -2,7 +2,7 @@
   "name": "helloyes-second-act",
   "scripts": {
     "dev:eleventy": "npx @11ty/eleventy --serve",
-    "build:eleventy": "npx @11ty/eleventy",
+    "build:eleventy": "FUNSTRA_MODE=prod npx @11ty/eleventy",
     "dev:parcel:css": "parcel watch --port 9999 src/scss/*.scss --dist-dir _site/css",
     "dev:parcel:js": "parcel watch --port 9998 src/js/*.js --dist-dir _site/js",
     "dev:parcel": "npm run dev:parcel:css & npm run dev:parcel:js",

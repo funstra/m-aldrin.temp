@@ -19,12 +19,17 @@ module.exports = config => {
   );
 
   config.addTransform("htmlmin", async function (content, outputPath) {
-    // Eleventy 1.0+: use this.inputPath and this.outputPath instead
+    if (!process.env.FUNSTRA_MODE) {
+      return content;
+    }
     if (outputPath && outputPath.endsWith(".html")) {
       let minified = await minify.minify(content, {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true,
+        minifyJS: true,
+        minifyCSS: true,
+        customAttrCollapse: /d/
       });
       return minified;
     }
