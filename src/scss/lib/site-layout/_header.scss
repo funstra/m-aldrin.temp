@@ -1,6 +1,9 @@
 #site-header {
   //   display: flex;
   //   justify-content: space-between;
+  @media screen and (min-width: 720px) {
+    padding-bottom: var(--padding);
+  }
   @media screen and (min-width: 1200px) {
     &::after {
       content: initial;
@@ -18,7 +21,7 @@ header {
   align-items: center;
 
   position: relative;
-  padding-bottom: var(--padding);
+  padding-bottom: calc(var(--padding) / 2) ;
   &::after {
     position: absolute;
     content: "";
