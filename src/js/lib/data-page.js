@@ -112,8 +112,17 @@ const setPage = async ({ pathname, href }) => {
 // listen for anchor clicks
 document.addEventListener("click", async e => {
   const { target } = e;
+  let fromSvg = false;
+  if (target.parentElement.tagName === "a") {
+    fromSvg = true;
+    target.href = target.parentElement.href.baseVal;
+    target.pathname = target.parentElement.href.baseVal;
+  }
   //if target is anchor and anchor origin is same as current webpage
-  if (target.tagName === "A" && target.origin === location.origin) {
+  if (
+    (target.tagName === "A" && target.origin === location.origin) ||
+    fromSvg
+  ) {
     e.preventDefault();
     if (target.pathname !== location.pathname) {
       // set page to target
@@ -131,7 +140,6 @@ document.addEventListener("click", async e => {
         .forEach(a => a.removeAttribute("aria-current"));
 
       e.target.setAttribute("aria-current", "page");
-      console.log(e.target);
       if (e.target.pathname == "/") {
         document
           .querySelectorAll("a[href='/']")

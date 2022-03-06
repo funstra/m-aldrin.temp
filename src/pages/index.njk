@@ -7,40 +7,23 @@ tags: nav
 ---
 <svg width="100%" height="100%" viewBox="0 0 1024 1024" preservAspectRatio="xMidYMid">
     <style>
-        .balls circle {
-            transition-property: fill,transform;
-            transition-duration: 300ms,200ms;
-            transition-timing-function: eas-out,cubic-bezier(0.95,0.125,0.125,1.25);
-
-
-            --ani-dist: 128;
-            --ani-scale: calc(var(--ani-dist) / 1024);
-            --t-y: calc(1px * var(--ani-dist));
-
-            animation-name: walk;
-            animation-duration: 3s;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-out;
-
+    .balls circle{
+        animation-name: back-forth;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: cubic-bezier(0.75,0.125,0.25,1.25);
+    }
+    @keyframes back-forth {
+        0%{
+            transform: translate(0,calc(-256px * (1 - var(--factor)))) scale(0.75);
         }
-        circle:hover {
-            fill: red;
-            transform: scale(1.25);
+        50%{
+            transform: translate(0,calc(32px * var(--factor))) scale(calc(1 + var(--factor) / 2));
         }
-        .balls {
+        100%{
+            transform: translate(0,calc(-256px * (1 - var(--factor)))) scale(0.75);
         }
-        @keyframes walk {
-            0% {
-                transform: translateY(0) scale(var(--s));
-            }
-            50% {
-                transform: translateY(calc(var(--t-y) / 2)) scale(calc(var(--s) + calc(var(--ani-scale) / 2)));
-            }
-
-            100% {
-                transform: translateY(var(--t-y)) scale(calc(var(--s) + var(--ani-scale)));
-            }
-        }
+    }
     </style>
     <defs>
         <linearGradient id="gradient-mist" gradientTransform="rotate(90)">
@@ -60,21 +43,21 @@ tags: nav
         </mask>
     </defs>
     {% set colArray = ['var(--col-r-500)', 'hsl(var(--col-r) var(--col-weight-300))'] %}
-    {% set n = 32%}
+    {% set n = 8%}
     <g mask="url(#mask-mist)">
         <g class="balls" >
             {% set rWeight = 0.95%}
             {% set maxR = 64 %}
             {% set minR = (1-rWeight) * maxR%}
             {% for i in range(0, n) %}
-                {% set factor = (i / (n-1))%}
+                {% set factor = (i / n) %}
                 {% set color = colArray[loop.index0 % 2]%}
                 16
                 {% set pos = {
                     x: 512,
-                    y: i * ((1024+minR) / ((n))) - minR
+                    y: i * ((256+minR) / ((n))) - minR + 512
                 } %}
-                <circle style="--s:{{factor}}"  cx="{{pos.x}}" cy="{{pos.y}}" r="{{96}}" fill="{{color}}" transform="translateY(0) scale({{factor}})" transform-origin="{{pos.x}} {{pos.y}}"/>
+                <circle style="--factor:{{factor}}" cx="{{pos.x}}" cy="{{pos.y}}" r="{{64}}" fill="{{color}}"  transform-origin="{{pos.x}} {{pos.y}}"/>
             {% endfor %}
         </g>
     </g>
