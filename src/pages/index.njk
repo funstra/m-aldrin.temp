@@ -16,12 +16,15 @@ tags: nav
     @keyframes back-forth {
         0%{
             transform: translate(0,calc(-256px * (1 - var(--factor)))) scale(0.75);
+            filter: blur(8px);
         }
         50%{
             transform: translate(0,calc(32px * var(--factor))) scale(calc(1 + var(--factor) / 2));
+            filter: blur(calc((0.85 - var(--factor)) * 6px));
         }
         100%{
             transform: translate(0,calc(-256px * (1 - var(--factor)))) scale(0.75);
+            filter: blur(8px);
         }
     }
     </style>

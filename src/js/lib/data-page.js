@@ -135,11 +135,16 @@ document.addEventListener("click", async e => {
           document.documentElement.classList.add("loading");
         }
       }, timeOut);
-      document
-        .querySelectorAll("a[aria-current]")
-        .forEach(a => a.removeAttribute("aria-current"));
-
-      e.target.setAttribute("aria-current", "page");
+      document.querySelectorAll("a[aria-current]").forEach(a => {
+        a.removeAttribute("aria-current");
+      });
+      document.querySelectorAll("a").forEach(a => {
+        if (a.pathname === target.pathname) {
+          console.log(a);
+          a.setAttribute("aria-current", "page");
+        }
+      });
+      // e.target.setAttribute("aria-current", "page");
       if (e.target.pathname == "/") {
         document
           .querySelectorAll("a[href='/']")
