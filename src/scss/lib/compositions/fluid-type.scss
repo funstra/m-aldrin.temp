@@ -53,14 +53,14 @@ $scale-max: calc(1 / $max-ratio);
 
 small,
 .small,
-button {
+button,
+figcaption {
   font-size: var(--fluid-0);
 }
-a{
+a {
   font-size: var(--fluid-0);
 }
 p,
-
 li {
   font-size: var(--fluid-1);
 }
