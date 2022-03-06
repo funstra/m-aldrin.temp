@@ -13,7 +13,10 @@ $l: 16;
 }
 .logo {
   margin-inline-start: -0.25ch;
-  font-size: 2.5em;
+  font-size: var(--fluid-3);
+  & > a{
+    font-size: 1em;
+  }
   font-weight: 1000;
   letter-spacing: -0.1ch;
   color: var(--col-r-500);

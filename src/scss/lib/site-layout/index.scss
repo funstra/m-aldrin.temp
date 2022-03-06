@@ -6,8 +6,10 @@
 
 #color-select {
   position: absolute;
-  bottom: 3%;
-  left: 5%;
+  // bottom: 3%;
+  // left: 5%;
+  left: calc(var(--padding));
+  bottom: calc(var(--padding));
 }
 #color-select input {
   --c: hsl(calc(var(--hue) + 180) 100% var(--col-weight-400));
@@ -110,10 +112,10 @@ body {
     flex-direction: column;
   }
   .padding-wrapper {
-    padding: calc(var(--padding) / 2);
-    @media screen and (min-width: 720px) {
-      padding: var(--padding);
-    }
+    padding: calc(var(--padding));
+    // @media screen and (min-width: 720px) {
+    //   padding: var(--padding);
+    // }
     // background-color: var(--col-r-500);
   }
 }

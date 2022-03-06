@@ -3,6 +3,7 @@
 @import "lib/elements/";
 @import "lib/typography/";
 @import "lib/animations/";
+@import "lib/compositions/";
 
 // detect safari - https://codepen.io/karlsson/pen/zYNYwNO
 @media not all and (min-resolution: 0.001dpcm) {
@@ -33,7 +34,8 @@ html {
 }
 
 html {
-  --padding: clamp(1em, 5vmax, 4em);
+  // --padding: clamp(1em, 5vmax, 4em);
+  --padding: var(--fluid-3)
 }
 
 body {

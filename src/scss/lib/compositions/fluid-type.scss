@@ -1,0 +1,76 @@
+@use "sass:math";
+// breakpoints
+$min-screen: 360;
+$max-screen: 1200;
+
+$dif: calc($max-screen - $min-screen);
+
+// ratios for min breakpoint and max breakpoint
+$min-ratio: 1.2;
+$max-ratio: 1.35;
+// sizes for scale level 0, this could resonably be the small tag for min breakpoint and max breakpoint
+$min-size: 12;
+$max-size: 16;
+// number of scale levels 0 indexed
+$n: 6;
+
+// custom properties for the interpolating value -> --fluid-width, a number that goes between 0 and 1
+:root {
+  // --max-width: #{math.div($max-screen, 1)}px;
+  --fluid-screen: 100vw;
+  --fluid-width: #{calc(((var(--fluid-screen) - #{$min-screen}px) / $dif))};
+}
+// breakpoints for the max width and min width. At theese breakpoints the --fluid-width custom property is set to the value of the breakpoint preventing it from going above or below.
+@media screen and (min-width:#{$max-screen}px) {
+  :root {
+    --fluid-screen: #{calc(#{$max-screen} * 1px)};
+  }
+}
+@media screen  and (max-width:#{$min-screen}px) {
+  :root {
+    --fluid-screen: #{calc(#{$min-screen} * 1px)};
+  }
+}
+
+$scale-min: calc(1 / $min-ratio);
+$scale-max: calc(1 / $max-ratio);
+:root {
+  @for $i from 0 to $n {
+    $scale-min: calc($scale-min * $min-ratio);
+    $scale-max: calc($scale-max * $max-ratio);
+
+    $fluid-min-size: calc($scale-min * $min-size);
+    $fluid-max-size: calc($scale-max * $max-size);
+
+    $fluid-dif: calc($fluid-max-size - $fluid-min-size);
+
+    // $fluid-min-size / 16 -> ~16 useragent fontsize
+    --fluid-#{$i}: #{calc(
+        #{$fluid-min-size / 16} * 1rem + #{$fluid-dif} * var(--fluid-width)
+      )};
+  }
+}
+
+small,
+.small,
+button {
+  font-size: var(--fluid-0);
+}
+a{
+  font-size: var(--fluid-0);
+}
+p,
+
+li {
+  font-size: var(--fluid-1);
+}
+
+h3 {
+  font-size: var(--fluid-2);
+}
+h2 {
+  font-size: var(--fluid-3);
+}
+h1 {
+  font-size: var(--fluid-5);
+}

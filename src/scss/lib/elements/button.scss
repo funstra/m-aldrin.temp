@@ -1,8 +1,11 @@
 button {
   // white-space: nowrap;
   cursor: pointer;
+  text-transform: uppercase;
   border-radius: 0;
   border-style: solid;
+  border: none;
+  border-width: 0.125em;
   background-color: transparent;
   color: currentColor;
   border-color: currentColor;
@@ -23,7 +26,7 @@ button {
   span {
     font-weight: 600;
     &:first-child{
-      margin-block-end: 0.3ex;
+      // margin-block-end: 0.3ex;
     }
   }
 }

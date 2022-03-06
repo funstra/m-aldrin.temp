@@ -36,8 +36,8 @@ header {
   @media screen and (min-width: 720px) {
     #color-select {
       position: fixed;
-      left: calc(var(--padding) * 0.75);
-      bottom: calc(var(--padding) * 0.75);
+      // left: calc(var(--padding));
+      // bottom: calc(var(--padding));
     }
     > button {
       display: none;

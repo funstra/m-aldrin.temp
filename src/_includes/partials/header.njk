@@ -27,7 +27,7 @@
                 <h3>Site Navigation</h3>
             </header>
             <ul>
-                {% for navpage in nav  %}
+                {% for navpage in nav %}
                     <a href="{{navpage.url}}" 
                 {% if page.url == navpage.url %}
                 aria-current="page"
