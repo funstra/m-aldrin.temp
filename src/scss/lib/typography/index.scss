@@ -18,12 +18,17 @@ h6 {
       :not(header) > &:not(:only-child) {
         //   margin-bottom: 1em;
         &:first-child {
-          margin-bottom: 2em;
-          text-decoration: overline underline double 2px
-            hsl(var(--col-r-1) var(--col-weight-300) / 0.25);
-          text-underline-offset: 0.5ex;
+          // margin-bottom: 2em;
+          // text-decoration: overline underline double 2px
+          //   hsl(var(--col-r-1) var(--col-weight-300) / 0.25);
+          // text-underline-offset: 0.5ex;
         }
       }
+    }
+  }
+  header > :is(h1, h2, h3) {
+    & + p:first-of-type {
+      font-size: var(--fluid-2);
     }
   }
 }

@@ -106,6 +106,7 @@ const setPage = async ({ pathname, href }) => {
     document.documentElement.dataset.navState = "";
   }
   document.documentElement.dataset.currentPage = destinationDocument.title;
+  document.documentElement.classList.remove('scrolling')
   return true;
 };
 

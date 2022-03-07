@@ -1,4 +1,5 @@
 import "./lib/data-page";
+import "./lib/scrollheight"
 
 const siteNav = document.getElementById("site-nav").querySelector("nav");
 document.getElementById("click-outside").onclick = e => {

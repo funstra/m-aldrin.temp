@@ -5,6 +5,22 @@
 @import "data-page.scss";
 
 #color-select {
+  position: relative;
+  z-index: 1;
+  --h: 0.5em;
+  --w: 1em;
+  --thumb-w: 0.5em;
+  --thumb-h: 300%;
+  .scrolling & {
+    & > input {
+      width: 50%;
+    }
+    --h: 0.25em;
+    --w: 0.5em;
+    --thumb-w: 0.25em;
+    --thumb-h: 150%;
+    bottom: calc(var(--padding) / 1.5);
+  }
   position: absolute;
   // bottom: 3%;
   // left: 5%;
@@ -19,10 +35,6 @@ input[type="range"] {
   -webkit-appearance: none;
   width: 100%;
   background-color: transparent;
-  --h: 0.5em;
-  --w: 1em;
-  --thumb-w: 0.5em;
-  --thumb-h: 300%;
 }
 input[type="range"]:focus {
   outline: none;
@@ -110,6 +122,17 @@ body {
 
     display: flex;
     flex-direction: column;
+    transition: padding-top 125ms;
+  }
+  .scrolling & .padding-wrapper {
+    // padding-top: calc(var(--padding) / 2.5);
+    @media screen and (min-width: 720px) {
+      padding-top: calc(var(--padding) / 5);
+    }
+    padding-block: calc(var(--padding) / 2.5);
+    // padding-bottom: calc(var(--padding) / 2.5);
+    padding-inline: calc(var(--padding) / 2.5);
+    // padding-bottom: calc();
   }
   .padding-wrapper {
     padding: calc(var(--padding));
@@ -126,6 +149,7 @@ body {
   // padding-top: calc(var(--padding) * 2);
   overflow-y: hidden;
   border-radius: 0.25em;
+  position: relative;
 }
 
 #click-outside {

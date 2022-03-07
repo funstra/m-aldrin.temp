@@ -11,12 +11,17 @@ $l: 16;
   $fractions: $fractions +
     "#{$step*0.75}ch #{$step*1}ch 0 #{list.nth([hsl(var(--col-r-1) var(--col-weight-300) / #{$opacity}),hsl(0 0% 100% / #{$opacity})], $i % 2 + 1)}"+$separator;
 }
+html.scrolling .logo {
+  font-size: var(--fluid-1);
+  transform: none;
+}
 .logo {
   margin-inline-start: -0.25ch;
   font-size: var(--fluid-3);
-  & > a{
+  & > a {
     font-size: 1em;
   }
+
   font-weight: 1000;
   letter-spacing: -0.1ch;
   color: var(--col-r-500);

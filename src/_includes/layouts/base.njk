@@ -35,7 +35,7 @@
     <div class="padding-wrapper">
       {% include "partials/header.njk" %}
       <div id="scroll-area">
-        <div data-page="{{page.fileSlug}}">
+        <div data-page="{{page.fileSlug}}" onscroll="scrollo(event)">
           <main 
           {% if onepage %}
             style="height:100%"
