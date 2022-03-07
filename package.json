@@ -3,12 +3,12 @@
   "scripts": {
     "dev:eleventy": "npx @11ty/eleventy --serve",
     "build:eleventy": "FUNSTRA_MODE=prod npx @11ty/eleventy",
-    "dev:parcel:css": "parcel watch --port 9999 src/scss/*.scss --dist-dir _site/css",
-    "dev:parcel:js": "parcel watch --port 9998 src/js/*.js --dist-dir _site/js",
+    "dev:parcel:css": "parcel watch --port 9999 src/scss/style.scss --dist-dir _site/css",
+    "dev:parcel:js": "parcel watch --port 9998 src/js/main.js --dist-dir _site/js",
     "dev:parcel": "npm run dev:parcel:css & npm run dev:parcel:js",
-    "build:parcel:js": "parcel build src/js/*.js --dist-dir _site/js",
-    "build:parcel:css": "parcel build src/scss/*.scss --dist-dir _site/css",
-    "build:parcel": "npm run build:parcel:css & npm run build:parcel:js",
+    "build:parcel:js": "parcel build src/js/main.js --dist-dir _site/js",
+    "build:parcel:css": "parcel build src/scss/style.scss --dist-dir _site/css",
+    "build:parcel": "npm run build:parcel:css && npm run build:parcel:js",
     "dev": "npm run dev:parcel & npm run dev:eleventy",
     "build": "npm run build:parcel && npm run build:eleventy"
   },
