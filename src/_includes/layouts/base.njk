@@ -1,52 +1,52 @@
 <!DOCTYPE html>
-<html lang="en" data-current-page={% if page.fileSlug == 'pages' %}"founstra"{% else %}"{{page.fileSlug}}">
-{% endif %}
-<head>
-  <meta charset="UTF-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
-  <title>{{ titel }}</title>
-  {# preloads #}
-  {% for preload in collections.nav %}
-    <link rel="preload" as="fetch" type="text/html" href="{{preload.url}}">
-  {% endfor %}
-  <link rel="stylesheet" href="/css/style.css"/>
-  <script src="/js/main.js" defer></script>
-  <script>
-    const hue = localStorage.getItem("hue");
-    if (hue) {
-      document
-        .documentElement
-        .style
-        .setProperty("--hue", hue);
-      window.addEventListener("DOMContentLoaded", e => {
-        const colSel = document
-          .querySelector("#color-select input")
-          .setAttribute("value", hue);
-      });
-    }
-  </script>
-</head>
-<body>
-  <div class="padding-wrapper">
-    {% include "partials/header.njk" %}
-    <div id="scroll-area">
-      <div data-page="{{page.fileSlug}}">
-        <main 
+<html lang="en" data-current-page={% if page.fileSlug == 'pages' %}"founstra"{% else %}"{{page.fileSlug}}"{% endif %}>
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <title>{{ titel }}</title>
+    {# preloads #}
+    {% for preload in collections.nav %}
+      <link rel="preload" as="fetch" type="text/html" href="{{preload.url}}">
+    {% endfor %}
+    <link rel="stylesheet" href="/css/style.css"/>
+    <script src="/js/main.js" defer></script>
+    <script>
+      const hue = localStorage.getItem("hue");
+      if (hue) {
+        document
+          .documentElement
+          .style
+          .setProperty("--hue", hue);
+        window.addEventListener("DOMContentLoaded", e => {
+          const colSel = document
+            .querySelector("#color-select input")
+            .setAttribute("value", hue);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div class="padding-wrapper">
+      {% include "partials/header.njk" %}
+      <div id="scroll-area">
+        <div data-page="{{page.fileSlug}}">
+          <main 
           {% if onepage %}
             style="height:100%"
           {% endif %} >
-          {{ content | safe }}
-        </main>
-        {% include "partials/footer.njk" %}
+            {{ content | safe }}
+          </main>
+          {% include "partials/footer.njk" %}
+        </div>
       </div>
     </div>
-  </div>
-  <div id="click-outside"></div>
-  {% include "partials/bg-noise.njk" %}
-</body>
+    <div id="click-outside"></div>
+    {% include "partials/bg-noise.njk" %}
+  </body>
 </html>

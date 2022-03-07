@@ -19,6 +19,7 @@ module.exports = config => {
   );
 
   config.addTransform("htmlmin", async function (content, outputPath) {
+    console.log('HELLO MINI?')
     if (!process.env.FUNSTRA_MODE) {
       return content;
     }
