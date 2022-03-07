@@ -1,5 +1,10 @@
-.grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-    gap: var(--fluid-0);
+.grid {
+  display: grid;
+  // grid-template-columns: repeat(auto-fit,minmax(calc(var(--fluid-5) * 6),1fr));
+  grid-template-columns: repeat(2, 1fr);
+  @media screen and (max-width: 720px) {
+    grid-template-columns: 1fr;
+    gap: var(--fluid-4);
+  }
+  gap: var(--fluid-0);
 }
