@@ -105,7 +105,7 @@ const setPage = async ({ pathname, href }) => {
   if (document.documentElement.dataset.navState) {
     document.documentElement.dataset.navState = "";
   }
-
+  document.documentElement.dataset.currentPage = destinationDocument.title;
   return true;
 };
 
